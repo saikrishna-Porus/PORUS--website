@@ -1,0 +1,1292 @@
+/* ============================================================
+   PORUS CITIZEN SERVICES — style.css  v6 (premium color system)
+   ============================================================
+
+   COLOR SYSTEM DESIGN BRIEF
+   ─────────────────────────
+   Inspiration: Stripe · Atlassian · Linear · Microsoft · Notion
+   Philosophy : Navy-anchored corporate palette. Every color
+               is purposefully placed in the value chain:
+               Navy for authority, Gold for warmth & identity,
+               Blue-grey for depth, Warm white for openness.
+
+   FULL PALETTE REFERENCE
+   ──────────────────────
+   Navy scale
+     --c-navy-900  #040d1a   absolute deepest — near-black with blue undertone
+     --c-navy-800  #071428   footer bg, darkest hero elements
+     --c-navy-700  #0c2040   panel gradient start, mission card
+     --c-navy-600  #122d58   interactive — nav CTA hover
+     --c-navy-500  #1a3f78   primary interactive, link accent
+     --c-navy-400  #2654a0   soft interactive, focus rings
+     --c-navy-100  #e8edf6   very light navy tint, chip bg
+     --c-navy-50   #f1f4fa   near-white navy — subtle hover bg
+
+   Gold scale
+     --c-gold-700  #7a5005   deepest gold, AAA on white
+     --c-gold-600  #9a6508   dark gold — hover states
+     --c-gold-500  #c28510   primary gold — eyebrows, borders
+     --c-gold-400  #d9980c   mid gold — active states, shimmer
+     --c-gold-300  #e8b44a   light gold — subtle highlights
+     --c-gold-100  #fef4d9   pale gold — chip backgrounds
+     --c-gold-50   #fffbf0   barely-gold — section accents
+
+   Neutral scale (warm-grey, slightly blue-tinted)
+     --c-grey-900  #0d1520   darkest body text
+     --c-grey-800  #1e2d42   primary body text
+     --c-grey-600  #3d526a   secondary text
+     --c-grey-400  #607080   muted / labels
+     --c-grey-200  #c8d0dc   light borders
+     --c-grey-100  #dde3ec   standard borders
+     --c-grey-50   #edf0f5   very light borders
+
+   Background scale
+     --c-bg-paper  #f8f7f5   warm off-white — main bg
+     --c-bg-white  #ffffff   pure white — cards
+     --c-bg-tint   #f3f2ef   one step deeper — alternating
+     --c-bg-blue   #f5f7fb   very faint blue tint — contact form
+
+   ============================================================ */
+
+:root {
+
+  /* ── Navy scale ── */
+  --c-navy-900: #040d1a;
+  --c-navy-800: #071428;
+  --c-navy-700: #0c2040;
+  --c-navy-600: #122d58;
+  --c-navy-500: #1a3f78;
+  --c-navy-400: #2654a0;
+  --c-navy-100: #e8edf6;
+  --c-navy-50:  #f1f4fa;
+
+  /* ── Gold scale ── */
+  --c-gold-700: #7a5005;
+  --c-gold-600: #9a6508;
+  --c-gold-500: #c28510;
+  --c-gold-400: #d9980c;
+  --c-gold-300: #e8b44a;
+  --c-gold-100: #fef4d9;
+  --c-gold-50:  #fffbf0;
+
+  /* ── Neutral / warm-grey scale ── */
+  --c-grey-900: #0d1520;
+  --c-grey-800: #1e2d42;
+  --c-grey-600: #3d526a;
+  --c-grey-400: #607080;
+  --c-grey-200: #c8d0dc;
+  --c-grey-100: #dde3ec;
+  --c-grey-50:  #edf0f5;
+
+  /* ── Backgrounds ── */
+  --c-bg-paper: #f8f7f5;
+  --c-bg-white: #ffffff;
+  --c-bg-tint:  #f3f2ef;
+  --c-bg-blue:  #f5f7fb;
+
+  /* ── Semantic aliases (used throughout CSS) ── */
+
+  /* Primary — Navy */
+  --navy:        var(--c-navy-900);   /* darkest — headlines, logo text  */
+  --navy-mid:    var(--c-navy-700);   /* panel gradient start             */
+  --navy-light:  var(--c-navy-500);   /* interactive — hover, CTA         */
+  --navy-subtle: var(--c-navy-50);    /* near-white hover chip            */
+
+  /* Gold accent */
+  --accent:        var(--c-gold-500); /* eyebrows, borders, active marks  */
+  --accent-pale:   var(--c-gold-100); /* chip fills                       */
+  --accent-mid:    var(--c-gold-600); /* hover gold — darker, richer      */
+  --accent-bright: var(--c-gold-400); /* shimmer lines, footer accents    */
+
+  /* Soft-blue accent */
+  --blue:      var(--c-navy-400);     /* focus rings                      */
+  --blue-pale: var(--c-navy-100);     /* blue tint surfaces               */
+
+  /* Backgrounds */
+  --bg:        var(--c-bg-paper);     /* primary bg — hero, alternate     */
+  --bg-white:  var(--c-bg-white);     /* card / section pure white        */
+  --bg-subtle: var(--c-bg-tint);      /* products section bg              */
+  --bg-form:   var(--c-bg-blue);      /* contact form card background     */
+
+  /* Text */
+  --text:       var(--c-grey-900);    /* near-black                       */
+  --text-body:  var(--c-grey-800);    /* primary body copy                */
+  --text-muted: var(--c-grey-600);    /* labels, secondary                */
+  --text-light: var(--c-grey-400);    /* placeholders, tertiary           */
+
+  /* Borders */
+  --border:       var(--c-grey-100);  /* standard separators              */
+  --border-light: var(--c-grey-50);   /* soft dividers                    */
+  --border-focus: var(--c-navy-500);  /* accessible navy focus ring       */
+
+  /* Shadows — navy-tinted for color cohesion */
+  --shadow-xs:  0 1px 2px rgba(4,13,26,.04);
+  --shadow-sm:  0 1px 4px rgba(4,13,26,.07), 0 1px 2px rgba(4,13,26,.04);
+  --shadow-md:  0 4px 16px rgba(4,13,26,.09), 0 2px 6px rgba(4,13,26,.05);
+  --shadow-lg:  0 16px 40px rgba(4,13,26,.12), 0 4px 12px rgba(4,13,26,.06);
+  --shadow-xl:  0 28px 60px rgba(4,13,26,.15), 0 8px 20px rgba(4,13,26,.08);
+  /* Card shadow: outer depth + hairline ring = float-on-surface effect */
+  --shadow-card:
+    0 2px 10px rgba(4,13,26,.07),
+    0 0 0 1px rgba(4,13,26,.045);
+
+  /* Border radii */
+  --r-xs:  5px;
+  --r-sm:  8px;
+  --r-md:  12px;
+  --r-lg:  16px;
+  --r-xl:  20px;
+  --r-2xl: 24px;
+
+  /* Easing */
+  --ease-spring: cubic-bezier(0.16, 1, 0.3, 1);
+  --ease-smooth: cubic-bezier(0.4, 0, 0.2, 1);
+  --t-fast:  0.16s cubic-bezier(0.4, 0, 0.2, 1);
+  --t-base:  0.22s cubic-bezier(0.4, 0, 0.2, 1);
+  --t-slow:  0.40s cubic-bezier(0.16, 1, 0.3, 1);
+}
+
+/* ── RESET ── */
+*,*::before,*::after { box-sizing:border-box; margin:0; padding:0; }
+html { scroll-behavior:smooth; font-size:16px; }
+body {
+  font-family: 'Plus Jakarta Sans','Inter',system-ui,-apple-system,sans-serif;
+  background: var(--bg);
+  color: var(--text-body);
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+  overflow-x: hidden;
+  line-height: 1.6;
+}
+img    { display:block; max-width:100%; }
+a      { text-decoration:none; color:inherit; }
+ul     { list-style:none; }
+button { cursor:pointer; font-family:inherit; border:0; background:none; }
+
+
+/* ── SCROLL-REVEAL ── */
+.fade-up {
+  opacity: 0;
+  transform: translateY(22px);
+  transition: opacity .7s var(--ease-spring), transform .7s var(--ease-spring);
+  will-change: opacity, transform;
+}
+.fade-up.visible { opacity:1; transform:translateY(0); }
+.stagger > .fade-up:nth-child(1) { transition-delay:0s; }
+.stagger > .fade-up:nth-child(2) { transition-delay:.07s; }
+.stagger > .fade-up:nth-child(3) { transition-delay:.14s; }
+.stagger > .fade-up:nth-child(4) { transition-delay:.21s; }
+.stagger > .fade-up:nth-child(5) { transition-delay:.28s; }
+
+
+/* ── LAYOUT ── */
+.container { max-width:1180px; margin:0 auto; padding:0 20px; }
+.section-pad { padding:36px 0; }
+
+
+/* ── TYPOGRAPHY ATOMS ── */
+.eyebrow {
+  display: inline-flex;
+  align-items: center;
+  gap: 8px;
+  font-size: 10.5px;
+  font-weight: 700;
+  letter-spacing: .14em;
+  text-transform: uppercase;
+  /* Gold 500 — warm, authoritative, reads on every bg */
+  color: var(--accent);
+  margin-bottom: 8px;
+}
+.eyebrow::before {
+  content:'';
+  display:block;
+  width:18px; height:1.5px;
+  background: var(--accent);
+  border-radius:2px;
+  flex-shrink:0;
+}
+
+.section-title {
+  font-size: clamp(24px, 3.2vw, 38px);
+  font-weight: 700;
+  line-height: 1.12;
+  letter-spacing: -.024em;
+  /* Navy 900 — maximum authority, WCAG AAA on all light bgs */
+  color: var(--navy);
+  margin-bottom: 8px;
+}
+.section-subtitle {
+  font-size: 15px;
+  line-height: 1.7;
+  /* Grey 600 — readable without competing with headlines */
+  color: var(--text-muted);
+  max-width: 500px;
+}
+
+
+/* ============================================================
+   NAVIGATION
+   ============================================================ */
+#navbar {
+  position: fixed;
+  top:0; left:0; right:0;
+  z-index: 200;
+  height: 58px;
+  /*
+    Frosted glass: warm-paper base at 88% opacity.
+    Matches page bg so navbar feels part of the document,
+    not a separate floating layer (Notion / Linear pattern).
+  */
+  background: rgba(248,247,245,.88);
+  backdrop-filter: blur(24px) saturate(180%);
+  -webkit-backdrop-filter: blur(24px) saturate(180%);
+  border-bottom: 1px solid transparent;
+  transition:
+    border-color .3s var(--ease-smooth),
+    box-shadow   .3s var(--ease-smooth),
+    background   .3s var(--ease-smooth);
+}
+#navbar.scrolled {
+  background: rgba(248,247,245,.97);
+  /* Grey-50 border — barely visible, just enough to separate */
+  border-bottom-color: var(--border-light);
+  box-shadow: 0 1px 0 var(--border-light), 0 2px 10px rgba(4,13,26,.06);
+}
+
+.nav-inner {
+  height:58px;
+  display:flex;
+  align-items:center;
+  justify-content:space-between;
+}
+
+.nav-logo {
+  display:flex; align-items:center;
+  gap:10px; flex-shrink:0;
+  transition: opacity var(--t-base);
+}
+.nav-logo:hover { opacity:.76; }
+.nav-logo img { height:36px; width:auto; object-fit:contain; }
+.nav-logo-text {
+  font-size:14.5px; font-weight:700;
+  /* Navy 900 for max brand weight */
+  color: var(--navy);
+  line-height:1.2;
+}
+.nav-logo-text small {
+  display:block; font-size:10px; font-weight:400;
+  /* Grey 400 — clearly secondary without disappearing */
+  color: var(--text-light);
+  letter-spacing:.06em; text-transform:uppercase;
+}
+
+/* Desktop links */
+.nav-links { display:flex; align-items:center; gap:2px; }
+.nav-links a {
+  position:relative;
+  font-size:13.5px; font-weight:500;
+  /* Grey 800 — readable but softer than navy, creates hierarchy */
+  color: var(--text-body);
+  padding:6px 13px;
+  border-radius: var(--r-sm);
+  transition: color var(--t-base), background var(--t-base);
+}
+.nav-links a:not(.nav-cta):hover {
+  /* Navy 900 text + navy-50 bg — crisp, professional hover */
+  color: var(--navy);
+  background: var(--c-navy-50);
+}
+.nav-links a.nav-active:not(.nav-cta) {
+  color: var(--navy);
+  font-weight: 600;
+}
+/* Gold underline active indicator — brand gold against navy = Porus identity mark */
+.nav-links a.nav-active:not(.nav-cta)::after {
+  content:'';
+  position:absolute;
+  bottom:2px; left:13px; right:13px;
+  height:2px;
+  background: var(--accent);
+  border-radius:2px;
+}
+
+/* Nav CTA — Navy fill, not gradient, Stripe-pattern flat button */
+.nav-cta {
+  /*
+    Solid navy fill. No gradient needed here — the flat high-contrast
+    button reads as premium when the rest of the nav is understated.
+    (Stripe, Linear, Vercel all use flat fills on nav CTAs.)
+  */
+  background: var(--c-navy-800) !important;
+  color: var(--c-bg-white) !important;
+  padding: 7px 17px !important;
+  border-radius: var(--r-sm) !important;
+  font-size: 13px !important;
+  font-weight: 600 !important;
+  margin-left: 10px;
+  letter-spacing: .01em;
+  /*
+    Dual shadow: outer depth + 1px inset top highlight.
+    The inset white line creates a subtle button "lid" — catches light.
+  */
+  box-shadow:
+    0 1px 2px rgba(4,13,26,.2),
+    inset 0 1px 0 rgba(255,255,255,.07);
+  transition: background var(--t-base), box-shadow var(--t-base), transform var(--t-base) !important;
+}
+.nav-cta:hover {
+  /* Step up one navy stop on hover — matches navy-600 */
+  background: var(--c-navy-600) !important;
+  box-shadow: 0 4px 16px rgba(4,13,26,.26) !important;
+  transform: translateY(-1px) !important;
+}
+.nav-cta:active { transform:translateY(0) !important; }
+
+/* Hamburger */
+.nav-hamburger {
+  display:none; flex-direction:column; justify-content:center;
+  gap:5px; width:36px; height:36px; padding:5px;
+  border-radius: var(--r-sm);
+  transition: background var(--t-base);
+}
+.nav-hamburger:hover { background: var(--c-navy-50); }
+.nav-hamburger span {
+  display:block; width:20px; height:1.5px;
+  /* Navy bars — match logo weight */
+  background: var(--navy);
+  border-radius:2px;
+  transition: transform .28s var(--ease-spring), opacity .2s ease;
+  transform-origin:center;
+}
+.nav-hamburger.open span:nth-child(1) { transform:translateY(6.5px) rotate(45deg); }
+.nav-hamburger.open span:nth-child(2) { opacity:0; transform:scaleX(0); }
+.nav-hamburger.open span:nth-child(3) { transform:translateY(-6.5px) rotate(-45deg); }
+
+/* Mobile drawer */
+.nav-mobile {
+  position:fixed; top:58px; left:0; right:0;
+  /* Pure white — clear separation from page bg when open */
+  background: var(--bg-white);
+  /* Grey-100 bottom border — same as scrolled navbar */
+  border-bottom: 1px solid var(--border);
+  box-shadow: var(--shadow-md);
+  padding:0 20px; max-height:0; overflow:hidden;
+  transition: max-height .36s var(--ease-spring), padding .32s ease;
+  z-index:199;
+}
+.nav-mobile.open { max-height:320px; padding:14px 20px 22px; }
+.nav-mobile a {
+  display:block; font-size:15px; font-weight:500;
+  color: var(--text-body);
+  padding:10px 0;
+  border-bottom: 1px solid var(--border-light);
+  transition: color var(--t-base), padding-left var(--t-base);
+}
+.nav-mobile a:last-child { border-bottom:none; }
+.nav-mobile a:hover { color:var(--navy); padding-left:4px; }
+.nav-mobile .mobile-cta {
+  display:block; margin-top:12px;
+  background: var(--c-navy-800);
+  color: var(--bg-white) !important;
+  padding:11px 24px; border-radius:var(--r-sm);
+  font-weight:600; text-align:center; width:100%;
+  transition: background var(--t-base) !important;
+}
+.nav-mobile .mobile-cta:hover {
+  background: var(--c-navy-600) !important;
+  padding-left:24px !important;
+}
+
+
+/* ============================================================
+   HERO / ABOUT SECTION
+   ============================================================ */
+#about {
+  position:relative; overflow:hidden;
+  padding:18px 0 28px;
+  /*
+    Three-layer ambient background:
+    1. Gold ellipse at right-center — warmth from the product image side
+    2. Navy ellipse at upper-right  — adds cool depth behind image
+    3. Warm paper base
+    Together they create a "lit from the right" feel matching
+    Stripe's hero treatment without any external SVG or image.
+  */
+  background:
+    radial-gradient(ellipse 72% 60% at 98% 50%,  rgba(194,133,16,.06)  0%, transparent 58%),
+    radial-gradient(ellipse 50% 65% at 90% 10%,  rgba(26,63,120,.05)   0%, transparent 52%),
+    radial-gradient(ellipse 38% 48% at 100% 88%, rgba(4,13,26,.025)    0%, transparent 58%),
+    var(--bg);
+  border-bottom: 1px solid var(--border-light);
+}
+
+/* Product screenshot — right-anchored, z=0 */
+#about::before {
+  content:''; position:absolute;
+  top:0; right:0; width:65%; height:100%;
+  background-image: url('../images/hero-image.png');
+  background-size:cover; background-repeat:no-repeat;
+  background-position:center right;
+  /*
+    Slight desaturation + minimal brightness adjustment.
+    The screenshot should feel atmospheric, not promotional.
+    contrast(0.97) softens harsh edges so it blends with bg gradients.
+  */
+  filter: saturate(1.04) brightness(1.01) contrast(0.97);
+  pointer-events:none; z-index:0;
+}
+
+/* Multi-stop gradient overlay — text protection + seamless integration */
+#about::after {
+  content:''; position:absolute; inset:0;
+  background:
+    /* Vertical vignette — top & bottom fade tie section to navbar/next section */
+    linear-gradient(to bottom,
+      var(--bg) 0%,
+      rgba(248,247,245,.35) 5%,
+      transparent 13%,
+      transparent 87%,
+      rgba(248,247,245,.55) 95%,
+      var(--bg) 100%),
+    /* Horizontal text-protection mask — 7 stops for photographic blend quality */
+    linear-gradient(to right,
+      var(--bg)              0%,
+      var(--bg)              22%,
+      rgba(248,247,245,.97)  30%,
+      rgba(248,247,245,.80)  40%,
+      rgba(248,247,245,.42)  54%,
+      rgba(248,247,245,.10)  66%,
+      transparent            76%);
+  pointer-events:none; z-index:1;
+}
+
+/* Dot grid — technology texture, right half only */
+.hero-bg-dots {
+  position:absolute; top:0; right:0;
+  width:58%; height:100%;
+  /*
+    Navy-900 dots at 5% opacity. Subtle enough to be subconscious;
+    visible enough to read as "structured / engineered".
+  */
+  background-image: radial-gradient(circle, rgba(4,13,26,.05) 1px, transparent 1px);
+  background-size:26px 26px;
+  pointer-events:none; z-index:2;
+  -webkit-mask-image:
+    linear-gradient(to right,  transparent 0%, rgba(0,0,0,.55) 32%, rgba(0,0,0,.55) 80%, transparent 100%),
+    linear-gradient(to bottom, transparent 0%, rgba(0,0,0,.75) 10%, rgba(0,0,0,.75) 82%, transparent 100%);
+  mask-image:
+    linear-gradient(to right,  transparent 0%, rgba(0,0,0,.55) 32%, rgba(0,0,0,.55) 80%, transparent 100%),
+    linear-gradient(to bottom, transparent 0%, rgba(0,0,0,.75) 10%, rgba(0,0,0,.75) 82%, transparent 100%);
+  -webkit-mask-composite: destination-in;
+  mask-composite:intersect;
+}
+
+/* Ambient gold glow — anchors the eye on the product image zone */
+.hero-bg-glow {
+  position:absolute; top:46%; right:7%;
+  transform:translateY(-50%);
+  width:400px; height:400px;
+  /*
+    Gold 500 at 7% — just enough to warm the right quadrant.
+    Imperceptible in isolation; effective as a compositional anchor.
+  */
+  background: radial-gradient(circle,
+    rgba(194,133,16,.07) 0%,
+    rgba(194,133,16,.03) 42%,
+    transparent 68%);
+  pointer-events:none; z-index:2;
+}
+
+.hero-wrapper {
+  position:relative; z-index:3;
+  min-height:540px; display:flex; align-items:center;
+}
+.hero-content  { max-width:800px; }
+.hero-visual   { display:none; }
+
+.about-headline {
+  font-size: clamp(28px, 4.2vw, 48px);
+  font-weight: 700; line-height: 1.07; letter-spacing: -.028em;
+  /* Navy 900 — maximum contrast, brand-anchored */
+  color: var(--navy);
+  margin-bottom: 10px;
+}
+.about-subheadline {
+  font-size: 17px; font-weight: 500;
+  /* Navy 500 — warm, legible, clearly secondary to headline */
+  color: var(--navy-light);
+  line-height: 1.56; margin-bottom: 12px;
+  font-style:italic; opacity:.80;
+}
+.about-body, .about-body-text {
+  font-size: 15px; line-height: 1.8;
+  /* Grey 800 — comfortable reading weight, navy-undertoned */
+  color: var(--text-body);
+  max-width: 560px;
+}
+.about-image-wrap { position:relative; }
+.about-image-wrap img {
+  width:100%; height:auto; object-fit:cover;
+  border-radius: var(--r-xl);
+  box-shadow: var(--shadow-xl);
+  display:block;
+  transition: transform var(--t-slow), box-shadow var(--t-slow);
+}
+.about-image-wrap:hover img {
+  transform:translateY(-4px);
+  box-shadow: var(--shadow-xl);
+}
+
+
+/* ============================================================
+   MISSION
+   ============================================================ */
+#mission {
+  /*
+    Pure white — creates a real tonal step from the warm-paper hero.
+    White sections after off-white heroes is a Linear / Stripe pattern.
+  */
+  background: var(--bg-white);
+  border-bottom: 1px solid var(--border-light);
+  position:relative;
+}
+/* Gold top-edge accent — 1.5px gradient line, very subtle */
+#mission::before {
+  content:''; position:absolute; top:0; left:0; right:0; height:1.5px;
+  /* Gold 500 → transparent: brand continuity from eyebrow colors */
+  background: linear-gradient(to right, var(--c-gold-500) 0%, rgba(194,133,16,.25) 38%, transparent 68%);
+}
+
+.mission-grid { display:grid; grid-template-columns:1fr 1fr; gap:48px; align-items:start; }
+
+.mission-statement {
+  font-size:15px; line-height:1.74;
+  color: var(--text-body);
+  margin-bottom:16px; padding-left:14px;
+  /* Gold 500 left border — same weight as eyebrow/underline system */
+  border-left: 2.5px solid var(--accent);
+}
+
+.mission-list { display:flex; flex-direction:column; gap:0; }
+.mission-item {
+  display:flex; align-items:flex-start; gap:12px;
+  padding:10px 6px 10px 0;
+  border-bottom: 1px solid var(--border-light);
+  font-size:14px; line-height:1.54;
+  color: var(--text-body);
+  border-radius:0;
+  transition: color var(--t-base), background var(--t-base), padding-left var(--t-base);
+}
+.mission-item:first-child { border-top:1px solid var(--border-light); }
+.mission-item:hover {
+  /* Navy 900 text + navy-50 bg — same hover language as nav links */
+  color: var(--navy);
+  background: var(--c-navy-50);
+  padding-left:6px; border-radius:var(--r-sm);
+}
+
+/* Icon chip */
+.m-icon, .mission-icon {
+  width:28px; height:28px; flex-shrink:0;
+  /* Gold 100 fill + Gold 500 border at 20% — warm, brand-consistent chip */
+  background: var(--accent-pale);
+  border-radius:7px;
+  display:flex; align-items:center; justify-content:center;
+  margin-top:1px;
+  border: 1px solid rgba(194,133,16,.2);
+  transition: background var(--t-base), transform var(--t-base);
+}
+.mission-item:hover .m-icon,
+.mission-item:hover .mission-icon {
+  background: rgba(194,133,16,.24);
+  transform: scale(1.1) rotate(-2deg);
+}
+.m-icon svg, .mission-icon svg {
+  width:14px; height:14px;
+  /* Gold 600 — deeper than chip fill, legible against pale gold */
+  color: var(--accent-mid);
+}
+
+/* Commitment panel */
+.mission-panel {
+  /*
+    Navy 700 → Navy 900 diagonal gradient.
+    Two-stop directional gradient reads as "crafted" vs flat fill.
+    Angle 148° = upper-left lighter, lower-right deeper — matches
+    the lighting direction of the hero (lit from top-right).
+  */
+  background: linear-gradient(148deg, var(--c-navy-700) 0%, var(--c-navy-900) 100%);
+  border-radius: var(--r-2xl);
+  padding:32px 30px;
+  color: var(--bg-white);
+  box-shadow: var(--shadow-lg);
+  position:relative; overflow:hidden;
+  /* Hairline white border — lifts card off dark section bg if present */
+  border: 1px solid rgba(255,255,255,.06);
+}
+/* Gold radial glow top-right — warmth against navy */
+.mission-panel::before {
+  content:''; position:absolute;
+  top:-80px; right:-80px; width:240px; height:240px;
+  background: radial-gradient(circle, rgba(194,133,16,.16) 0%, transparent 62%);
+  pointer-events:none;
+}
+/* Deep navy blob bottom-left — adds dimensional depth */
+.mission-panel::after {
+  content:''; position:absolute;
+  bottom:-60px; left:-40px; width:180px; height:180px;
+  background: radial-gradient(circle, rgba(12,32,64,.45) 0%, transparent 68%);
+  pointer-events:none;
+}
+.mission-panel-tag, .mission-panel-label {
+  font-size:10px; font-weight:700; letter-spacing:.15em;
+  text-transform:uppercase;
+  /* Gold 300 — lighter gold reads well on deep navy, avoids glare */
+  color: var(--c-gold-300);
+  margin-bottom:10px; position:relative;
+}
+.mission-panel h3 {
+  font-size:21px; font-weight:700; line-height:1.32;
+  letter-spacing:-.014em;
+  color: var(--bg-white);
+  margin-bottom:12px; position:relative;
+}
+.mission-panel p {
+  font-size:13.5px; line-height:1.74;
+  /* White at 60% — readable without dominating the bullet list below */
+  color: rgba(255,255,255,.62);
+  margin-bottom:20px; position:relative;
+}
+.panel-values { display:flex; flex-direction:column; gap:9px; position:relative; }
+.panel-value {
+  display:flex; align-items:center; gap:10px;
+  font-size:13px;
+  /* White at 80% — clearly secondary to headline, clearly readable */
+  color: rgba(255,255,255,.80);
+  transition: color var(--t-base);
+}
+.panel-value:hover { color:rgba(255,255,255,1); }
+.panel-dot {
+  width:5px; height:5px; border-radius:50%;
+  /* Gold 500 dot + gold ring halo — brand signature element */
+  background: var(--accent);
+  flex-shrink:0;
+  box-shadow: 0 0 0 3px rgba(194,133,16,.22);
+}
+
+
+/* ============================================================
+   PRODUCTS
+   ============================================================ */
+
+/*
+  Section background: one step cooler and slightly deeper than --bg-subtle.
+  This gives the ivory/cream cards a clear surface to sit on —
+  enough contrast without feeling dark or heavy.
+*/
+#products {
+  background: #ede9e3;
+  border-bottom: 1px solid var(--border-light);
+}
+.products-header { max-width:540px; margin-bottom:10px;}
+.products-grid { display:grid; grid-template-columns:1fr 1fr; gap:22px; }
+
+/* ── Card ──
+   Warm ivory / champagne surface.
+   #fdf9f3 is one step warmer than pure white and distinctly different
+   from the section background — creates natural depth without darkness.
+   The gold border at default state reinforces brand identity subtly.
+*/
+.product-card {
+  background: #fdf9f3;
+  border: 1px solid rgba(194,133,16,.18);
+  border-radius: var(--r-xl);
+  overflow:hidden;
+  box-shadow:
+    0 2px 12px rgba(4,13,26,.07),
+    0 0 0 1px rgba(194,133,16,.08);
+  position:relative; will-change:transform;
+  transition:
+    transform     .38s var(--ease-spring),
+    box-shadow    .38s var(--ease-spring),
+    border-color  .20s var(--ease-smooth);
+}
+
+/* Gold shimmer top edge — appears on hover only */
+.product-card::before {
+  content:''; position:absolute;
+  top:0; left:0; right:0; height:2px;
+  background: linear-gradient(90deg, transparent 0%, var(--c-gold-400) 50%, transparent 100%);
+  opacity:0;
+  transition: opacity .28s var(--ease-smooth);
+  z-index:1;
+}
+.product-card:hover {
+  transform:translateY(-7px);
+  box-shadow:
+    0 20px 48px rgba(4,13,26,.11),
+    0 6px 16px rgba(4,13,26,.07),
+    0 0 0 1px rgba(194,133,16,.22);
+  border-color: rgba(194,133,16,.36);
+}
+.product-card:hover::before { opacity:1; }
+
+/* ── Screenshot ──
+   Background matches the card surface so the screenshot frame
+   feels native, not inserted.
+   Overlay is a very faint warm-ivory vignette at the bottom —
+   enough to soften the hard edge where screenshot meets card body,
+   but not enough to obscure image content.
+*/
+.product-screenshot {
+  width:100%; height:215px; overflow:hidden;
+  background: #f5f0e8;
+  position:relative;
+}
+.product-screenshot img {
+  width:100%; height:100%;
+  object-fit:cover; object-position:top center;
+  transition: transform .55s var(--ease-spring);
+  display:block;
+}
+.product-card:hover .product-screenshot img { transform:scale(1.055); }
+.screenshot-overlay, .screenshot-shine {
+  position:absolute; inset:0;
+  /*
+    Light warm gradient — barely visible (max 8% opacity at bottom).
+    Separates screenshot from card body without hiding content.
+  */
+  background: linear-gradient(to bottom,
+    transparent 60%,
+    rgba(232, 168, 49, 0.251) 100%);
+  pointer-events:none;
+}
+
+/* ── Product body ── */
+.product-body { padding:18px 20px 18px; }
+
+/*
+  Badge: same gold chip system as the rest of the site.
+  No change — it already looks correct on a warm-ivory card.
+*/
+.product-badge {
+  display:inline-block;
+  font-size:9.5px; font-weight:700; letter-spacing:.1em;
+  text-transform:uppercase;
+  color: var(--accent-mid);
+  background: var(--accent-pale);
+  padding:3px 9px; border-radius:var(--r-xs);
+  margin-bottom:8px;
+  border: 1px solid rgba(194,133,16,.24);
+}
+
+/* Product name row (logo + h3 side by side if logo present) */
+.product-name-row {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  margin-bottom: 8px;
+}
+.product-logo {
+  height: 28px;
+  width: auto;
+  object-fit: contain;
+  flex-shrink: 0;
+}
+
+.product-name {
+  font-size:21px; font-weight:700;
+  color: var(--navy);
+  letter-spacing:-.016em; margin-bottom:6px;
+}
+.product-desc {
+  font-size:13.5px; line-height:1.68;
+  color: var(--text-body);
+  margin-bottom:16px;
+}
+
+/* Outlined CTA — unchanged from original light-card design */
+.product-cta {
+  display:inline-flex; align-items:center; gap:6px;
+  font-size:13px; font-weight:600;
+  color: var(--navy);
+  border: 1.5px solid rgba(4,13,26,.18);
+  padding:8px 15px; border-radius:var(--r-sm);
+  background:transparent; letter-spacing:.01em;
+  transition:
+    background   var(--t-base),
+    color        var(--t-base),
+    border-color var(--t-base),
+    box-shadow   var(--t-base),
+    transform    var(--t-base);
+}
+.product-cta:hover {
+  background: var(--c-navy-800);
+  color: var(--bg-white);
+  border-color: var(--c-navy-800);
+  box-shadow: 0 4px 16px rgba(4,13,26,.22);
+  transform:translateY(-1px);
+}
+.product-cta:active { transform:translateY(0); }
+.product-cta svg {
+  width:12px; height:12px;
+  transition: transform .20s var(--ease-spring);
+}
+.product-cta:hover svg { transform:translate(2px,-2px); }
+
+
+/* ============================================================
+   CONTACT
+   ============================================================ */
+#contact {
+  /* Pure white — alternates with off-white bg, matches mission */
+  background: var(--bg-white);
+}
+
+.contact-grid { display:grid; grid-template-columns:1fr 1fr; gap:48px; align-items:start; }
+.contact-intro {
+  font-size:14.5px; line-height:1.74;
+  color: var(--text-body); margin-bottom:20px;
+}
+.contact-items { display:flex; flex-direction:column; gap:14px; }
+.contact-item  { display:flex; align-items:flex-start; gap:12px; }
+
+/* Contact icon chips — match mission icon chip language */
+.ci-icon, .contact-icon {
+  width:34px; height:34px; flex-shrink:0;
+  background: var(--accent-pale);
+  border-radius: var(--r-sm);
+  display:flex; align-items:center; justify-content:center;
+  border: 1px solid rgba(194,133,16,.20);
+  transition: background var(--t-base), transform var(--t-base);
+}
+.contact-item:hover .ci-icon,
+.contact-item:hover .contact-icon {
+  background: rgba(194,133,16,.22);
+  transform:scale(1.07);
+}
+.ci-icon svg, .contact-icon svg {
+  width:15px; height:15px;
+  color: var(--accent-mid);
+}
+.ci-label, .contact-item-label {
+  font-size:10.5px; font-weight:700; letter-spacing:.09em;
+  text-transform:uppercase;
+  /* Grey 400 — clearly subordinate label */
+  color: var(--text-muted);
+  margin-bottom:2px;
+}
+.ci-value, .contact-item-value {
+  font-size:14px; color: var(--navy); line-height:1.52;
+}
+.ci-value a, .contact-item-value a {
+  color: var(--navy);
+  transition: color var(--t-base);
+}
+.ci-value a:hover, .contact-item-value a:hover {
+  /* Gold 600 on hover — richer than accent, clearly interactive */
+  color: var(--accent-mid);
+}
+
+/* Form card */
+.contact-form-wrap {
+  /*
+    Very faint blue-tinted bg (Navy-50 territory) — distinguishes the
+    form surface from the white section background. Slack, Notion, and
+    Atlassian all use this micro-tint pattern for form wells.
+  */
+  background: var(--bg-form);
+  border: 1px solid var(--border-light);
+  border-radius: var(--r-xl);
+  padding:22px;
+  /* Outer shadow + inner top-edge highlight = card "floats" above section */
+  box-shadow: var(--shadow-sm), inset 0 1px 0 rgba(255,255,255,.9);
+}
+.form-row { display:grid; grid-template-columns:1fr 1fr; gap:12px; }
+.form-group { margin-bottom:12px; }
+.form-group label {
+  display:block; font-size:10.5px; font-weight:700;
+  letter-spacing:.07em; text-transform:uppercase;
+  color: var(--text-muted); margin-bottom:5px;
+}
+.form-group input,
+.form-group textarea {
+  width:100%;
+  /* Pure white input surface against blue-tinted form card */
+  background: var(--bg-white);
+  border: 1.5px solid var(--border);
+  border-radius: var(--r-sm);
+  padding:9px 12px;
+  font-family:inherit; font-size:14px;
+  color: var(--text);
+  outline:none; -webkit-appearance:none;
+  transition:
+    border-color .16s var(--ease-smooth),
+    box-shadow   .16s var(--ease-smooth),
+    background   .16s var(--ease-smooth);
+}
+.form-group input::placeholder,
+.form-group textarea::placeholder { color: var(--text-light); }
+.form-group input:hover:not(:focus),
+.form-group textarea:hover:not(:focus) {
+  /* Navy 500 at 26% — anticipatory hover, not yet focus */
+  border-color: rgba(26,63,120,.26);
+}
+.form-group input:focus,
+.form-group textarea:focus {
+  /* Navy 500 border + navy ring at 10% — WCAG 2.4.11 compliant */
+  border-color: var(--border-focus);
+  box-shadow: 0 0 0 3px rgba(26,63,120,.10);
+  background: var(--bg-white);
+}
+.form-group input.error,
+.form-group textarea.error {
+  border-color: #cc2b1a;
+  box-shadow: 0 0 0 3px rgba(204,43,26,.09);
+}
+.form-group .field-error {
+  display:none; font-size:11.5px; color:#b5240f; margin-top:4px;
+}
+.form-group .field-error.show { display:block; }
+.form-group textarea { resize:vertical; min-height:92px; }
+
+/* Submit button — matches nav CTA exactly for visual consistency */
+.form-submit {
+  width:100%;
+  background: var(--c-navy-800);
+  color: var(--bg-white);
+  border:none; padding:11px;
+  border-radius: var(--r-sm);
+  font-family:inherit; font-size:14px; font-weight:600; letter-spacing:.015em;
+  box-shadow:
+    0 1px 3px rgba(4,13,26,.22),
+    inset 0 1px 0 rgba(255,255,255,.07);
+  transition:
+    background var(--t-base),
+    box-shadow  var(--t-base),
+    transform   var(--t-base);
+  margin-top:2px;
+}
+.form-submit:hover {
+  background: var(--c-navy-600);
+  box-shadow: 0 5px 20px rgba(4,13,26,.28);
+  transform:translateY(-1px);
+}
+.form-submit:active  { transform:translateY(0); }
+.form-submit:disabled { opacity:.55; cursor:not-allowed; transform:none; }
+
+/* Success */
+.form-success { display:none; text-align:center; padding:20px 0; }
+.form-success.show { display:block; }
+.success-icon {
+  width:48px; height:48px;
+  background: #d0fae3;
+  border-radius:50%; display:flex; align-items:center; justify-content:center;
+  margin:0 auto 12px;
+}
+.success-icon svg { width:22px; height:22px; color:#036b38; }
+.form-success h4 { font-size:16px; font-weight:700; color:var(--navy); margin-bottom:5px; }
+.form-success p  { font-size:14px; color:var(--text-muted); }
+
+
+/* ============================================================
+   FOOTER
+   ============================================================ */
+
+/* ── Wrapper ──
+   Deep navy matching the reference image: #0b1728 is slightly bluer
+   and richer than navy-900, giving the footer its own identity while
+   staying within the brand palette.
+*/
+footer {
+  background: #0b1728;
+  padding: 0;
+  border-top: 1px solid rgba(255,255,255,.06);
+}
+
+footer .container {
+  padding-top: 52px;
+}
+
+/* ── Main 4-column grid ── */
+.footer-grid {
+  display: grid;
+  grid-template-columns: 2fr 1fr 1fr 1.5fr;
+  gap: 48px;
+  padding-bottom: 48px;
+  /* Subtle bottom border before the bottom bar */
+  border-bottom: 1px solid rgba(255,255,255,.07);
+}
+
+/* ── Brand column ── */
+.footer-brand-col {}
+
+.footer-brand-name {
+  font-size: 15px;
+  font-weight: 700;
+  color: #ffffff;
+  line-height: 1.42;
+  letter-spacing: -.01em;
+  margin-bottom: 12px;
+}
+.footer-brand-name span {
+  display: block;
+  font-weight: 400;
+  font-size: 13px;
+  color: #ffffff;
+  letter-spacing: 0;
+}
+
+.footer-brand-desc {
+  font-size: 13px;
+  line-height: 1.75;
+  color: rgba(255,255,255,.45);
+  margin-bottom: 14px;
+  max-width: 240px;
+}
+
+.footer-brand-addr {
+  font-size: 12.5px;
+  color: rgba(255,255,255,.30);
+  line-height: 1.65;
+  margin-bottom: 22px;
+}
+
+/* ── Social icons ──
+   Reference image shows square icons with a subtle border,
+   white icon at ~40% opacity, gold on hover.
+*/
+.footer-social {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  flex-wrap: wrap;
+}
+
+.footer-social-link {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 36px;
+  height: 36px;
+  border-radius: var(--r-sm);
+  border: 1px solid rgba(255,255,255,.14);
+  color: rgba(255,255,255,.40);
+  background: transparent;
+  transition:
+    color        .2s var(--ease-smooth),
+    border-color .2s var(--ease-smooth),
+    background   .2s var(--ease-smooth),
+    transform    .2s var(--ease-spring);
+}
+.footer-social-link:hover {
+  color: var(--c-gold-300);
+  border-color: rgba(232,180,74,.45);
+  background: rgba(232,180,74,.08);
+  transform: translateY(-2px);
+}
+.footer-social-link:active {
+  transform: translateY(0);
+}
+.footer-social-link svg {
+  width: 15px;
+  height: 15px;
+  display: block;
+}
+
+/* ── Column headings ──
+   Gold uppercase labels exactly as in reference image.
+*/
+.footer-col-title {
+  font-size: 11px;
+  font-weight: 700;
+  letter-spacing: .12em;
+  text-transform: uppercase;
+  color: var(--c-gold-400);
+  margin-bottom: 16px;
+}
+
+/* ── Nav links ── */
+.footer-nav-col {}
+
+.footer-links {
+  display: flex;
+  flex-direction: column;
+  gap: 0;
+}
+
+.footer-link-item {
+  font-size: 13.5px;
+  color: rgba(255,255,255,.55);
+  line-height: 1.4;
+  padding: 7px 0;
+  border-bottom: 1px solid rgba(255,255,255,.05);
+  transition: color .2s var(--ease-smooth), padding-left .2s var(--ease-smooth);
+}
+.footer-link-item:last-child {
+  border-bottom: none;
+}
+.footer-link-item:hover {
+  color: rgba(255,255,255,.90);
+  padding-left: 4px;
+}
+
+/* ── Contact column ──
+   Reference image: icon in a small rounded square container,
+   uppercase label in dim text, value in brighter white.
+*/
+.footer-contact-list {
+  display: flex;
+  flex-direction: column;
+  gap: 16px;
+}
+
+.footer-contact-item {
+  display: flex;
+  align-items: flex-start;
+  gap: 10px;
+  transition: opacity .2s var(--ease-smooth);
+}
+.footer-contact-item:hover { opacity: .88; }
+
+.footer-contact-icon {
+  width: 32px;
+  height: 32px;
+  flex-shrink: 0;
+  border-radius: var(--r-sm);
+  background: rgba(255,255,255,.07);
+  border: 1px solid rgba(255,255,255,.10);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  margin-top: 1px;
+  transition: background .2s var(--ease-smooth), border-color .2s var(--ease-smooth);
+}
+.footer-contact-item:hover .footer-contact-icon {
+  background: rgba(232,180,74,.12);
+  border-color: rgba(232,180,74,.28);
+}
+.footer-contact-icon svg {
+  width: 13px;
+  height: 13px;
+  color: var(--c-gold-300);
+}
+
+.footer-contact-label {
+  font-size: 10px;
+  font-weight: 700;
+  letter-spacing: .10em;
+  text-transform: uppercase;
+  color: rgba(255,255,255,.28);
+  margin-bottom: 2px;
+}
+.footer-contact-value {
+  font-size: 13.5px;
+  color: rgba(255,255,255,.62);
+  line-height: 1.4;
+}
+.footer-contact-value a {
+  color: rgba(255,255,255,.62);
+  transition: color .2s var(--ease-smooth);
+}
+.footer-contact-value a:hover {
+  color: #ffffff;
+}
+
+/* ── Bottom bar ── */
+.footer-bottom {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding: 20px 0 26px;
+  gap: 16px;
+  flex-wrap: wrap;
+}
+
+.footer-copy {
+  font-size: 12px;
+  color: rgba(255,255,255,.28);
+  line-height: 1.4;
+}
+
+.footer-legal {
+  display: flex;
+  align-items: center;
+  gap: 22px;
+}
+.footer-legal a {
+  font-size: 12px;
+  color: rgba(255,255,255,.30);
+  transition: color .2s var(--ease-smooth);
+}
+.footer-legal a:hover {
+  color: rgba(255,255,255,.72);
+}
+
+/* ============================================================
+   RESPONSIVE
+   ============================================================ */
+@media(max-width:1100px) {
+  .container { padding:0 18px; }
+  .mission-grid { gap:36px; }
+  .contact-grid { gap:36px; }
+  .footer-grid { grid-template-columns:1.5fr 1fr 1fr; gap:32px; }
+  .footer-grid .footer-contact-col { grid-column:1 / -1; }
+  .footer-contact-list { flex-direction:row; flex-wrap:wrap; gap:18px; }
+}
+
+@media(max-width:900px) {
+  .nav-links     { display:none; }
+  .nav-hamburger { display:flex; }
+  .mission-grid,
+  .contact-grid  { grid-template-columns:1fr; gap:24px; }
+  .mission-panel { display:none; }
+  .products-grid { grid-template-columns:1fr; }
+  .form-row      { grid-template-columns:1fr; }
+  #about { padding:18px 0 24px; }
+  #about::before,
+  #about::after  { width:100%; opacity:.07; }
+  .hero-bg-dots, .hero-bg-glow { opacity:.4; }
+  .section-pad   { padding:40px 0; }
+  .hero-wrapper  { min-height:310px; }
+  .footer-grid   { grid-template-columns:1fr 1fr; gap:28px; }
+  .footer-grid .footer-brand-col { grid-column:1 / -1; }
+  .footer-contact-list { flex-direction:row; flex-wrap:wrap; gap:16px; }
+  .footer-bottom { flex-direction:column; align-items:flex-start; gap:8px; }
+}
+
+@media(max-width:768px) {
+  .container { padding:0 16px; }
+  .product-screenshot { height:185px; }
+  .contact-form-wrap { padding:18px; }
+  .section-pad { padding:32px 0; }
+  .footer-grid { grid-template-columns:1fr; gap:28px; }
+  .footer-contact-list { flex-direction:column; gap:14px; }
+}
+
+@media(max-width:480px) {
+  .container    { padding:0 14px; }
+  .about-headline { font-size:27px; }
+  .section-title  { font-size:23px; }
+  .product-body   { padding:14px; }
+  .product-name   { font-size:18px; }
+  .section-pad    { padding:28px 0; }
+  footer          { padding:0; }
+  footer .container { padding-top:36px; }
+  .footer-grid    { padding-bottom:32px; gap:20px; }
+  .footer-bottom  { padding:16px 0 22px; }
+}
+
+@media(max-width:375px) {
+  .container { padding:0 12px; }
+  .about-subheadline { font-size:15px; }
+}
+
+/* ── Reduced motion ── */
+@media(prefers-reduced-motion:reduce) {
+  *, *::before, *::after {
+    animation-duration:.01ms !important;
+    transition-duration:.01ms !important;
+  }
+  .fade-up { opacity:1; transform:none; }
+}
